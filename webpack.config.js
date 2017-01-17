@@ -1,29 +1,28 @@
-var path = require('path');
 var webpack = require('webpack');
+var path = require('path');
 
-module.exports = {
+var BUILD_DIR = path.resolve(__dirname, 'public');
+var APP_DIR = path.resolve(__dirname, 'src');
+
+var config = {
+    entry: APP_DIR + '/index.jsx',
+    output: {
+        path: BUILD_DIR,
+        filename: 'bundle.js'
+    },
     module: {
         loaders: [
             {
-                loader: "babel-loader",
-                // Skip any files outside of your project's `src` directory
-                include: [
-                    path.resolve(__dirname, "src")
-                ],
-                // Only run `.js` and `.jsx` files through Babel
-                test: /\.jsx?$/,
-                // Options to configure babel with
+                test: /\.jsx?/,
+                include: APP_DIR,
+                loader: 'babel-loader',
                 query: {
                     plugins: ['transform-runtime'],
                     presets: ['es2015', 'react']
                 }
             }
         ]
-    },
-    output: {
-        filename: 'bundle.js'
-    },
-    entry: [
-        './src/index.js'
-    ]
+    }
 };
+
+module.exports = config;

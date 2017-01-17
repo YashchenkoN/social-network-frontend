@@ -47,4 +47,4 @@ fabric.properties
 
 /node_modules
 .idea
-bundle.js
+/public/bundle.js
