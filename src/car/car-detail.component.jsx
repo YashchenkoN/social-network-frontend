@@ -1,6 +1,17 @@
 import React, {Component} from 'react';
+import { hashHistory } from 'react-router';
 
 class CarDetail extends Component {
+
+    constructor(props) {
+        super(props);
+        this.handleRedirect = this.handleRedirect.bind(this);
+    }
+
+    handleRedirect() {
+        hashHistory.push('/cars');
+    }
+
     render() {
         // Car array
         const cars = this.props.route.data;
@@ -30,6 +41,9 @@ class CarDetail extends Component {
                             <li><strong>Price</strong>: {car[0].price}</li>
                         </ul>
                     </div>
+                </div>
+                <div className="col-md-12">
+                    <button className="btn btn-default" onClick={this.handleRedirect}>Go to Cars</button>
                 </div>
             </div>
         );
