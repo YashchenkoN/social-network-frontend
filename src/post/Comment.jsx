@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-class Comment extends Component {
+export default class Comment extends Component {
     render() {
         return (
             // todo remove section ???
@@ -16,5 +16,3 @@ class Comment extends Component {
         );
     }
 }
-
-export default Like

@@ -15,7 +15,7 @@ var config = {
             {
                 test: /\.jsx?/,
                 include: APP_DIR,
-                loader: 'babel-loader',
+                loader: 'babel',
                 query: {
                     plugins: ['transform-runtime'],
                     presets: ['es2015', 'react']

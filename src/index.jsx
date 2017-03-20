@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import {Router, Route} from 'react-router';
-import Home from './common/home.component.jsx'
-import About from './common/about.component.jsx'
-import Car from './car/car.component.jsx'
-import CarDetail from './car/car-detail.component.jsx'
-import Main from './common/main.component.jsx'
+import Home from './common/Home.jsx'
+import About from './common/About.jsx'
 import {hashHistory} from "react-router";
 
 const data = [
@@ -60,10 +57,10 @@ const data = [
 
 render(
     <Router history={hashHistory}>
-        <Route component={Main}>
+        <Route component={Home}>
             <Route path="/" component={Home}/>
-            <Route path="/cars" component={Car} data={data}/>
-            <Route path="/cars/:id" component={CarDetail} data={data}/>
+            {/*<Route path="/cars" component={Car} data={data}/>*/}
+            {/*<Route path="/cars/:id" component={CarDetail} data={data}/>*/}
             <Route path="/about" component={About}/>
         </Route>
     </Router>,

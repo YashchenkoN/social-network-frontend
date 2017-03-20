@@ -1,6 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 
-class Like extends Component {
+export default class Like extends Component {
 
     propTypes = {
         count: PropTypes.number.isRequired
@@ -14,5 +14,3 @@ class Like extends Component {
         );
     }
 }
-
-export default Like
