@@ -1,14 +1,26 @@
 import React, {Component} from "react";
-import Header from "./Header.jsx";
 import Navbar from "./Navbar.jsx";
+import LoginForm from "./LoginForm.jsx";
 
 export default class Home extends Component {
 
     render() {
         return (
             <div>
-                <Header/>
+                <header>
+                    <div className="container">
+                        <img src="img/logo.png" className="logo" alt=""/>
+                        <LoginForm/>
+                    </div>
+                </header>
+
                 <Navbar/>
+
+                <footer>
+                    <div className="container">
+                        <p>Dobble Copyright &copy, 2015</p>
+                    </div>
+                </footer>
             </div>
         );
     }
