@@ -27,7 +27,7 @@ export default class Navbar extends Component {
                     <MenuItem onTouchTap={this.handleClose.bind(this)}>Friends</MenuItem>
                     <MenuItem onTouchTap={this.handleClose.bind(this)}>About</MenuItem>
                 </Drawer>
-                <AppBar title="App Bar Example" onLeftIconButtonTouchTap={this.handleToggle.bind(this)}/>
+                <AppBar title="Social Network" onLeftIconButtonTouchTap={this.handleToggle.bind(this)}/>
             </div>
         );
     }
