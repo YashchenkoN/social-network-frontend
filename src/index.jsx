@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import {Router, Route} from 'react-router';
-import Home from './common/Home.jsx'
-import About from './common/About.jsx'
+import Home from './pages/Home.jsx'
+import About from './components/common/About.jsx'
 import {hashHistory} from "react-router";
 
 const data = [
