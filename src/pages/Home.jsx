@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import Navbar from "../components/common/Navbar.jsx";
-import LoginForm from "../components/common/LoginForm.jsx";
+import LoginForm from "../components/forms/LoginForm.jsx";
 
 export default class Home extends Component {
 
