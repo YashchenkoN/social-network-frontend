@@ -20,6 +20,10 @@ var config = {
                     plugins: ['transform-runtime'],
                     presets: ['es2015', 'react']
                 }
+            },
+            {
+                test: /\.css$/,
+                loader:'style!css!'
             }
         ]
     }

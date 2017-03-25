@@ -1,58 +1,34 @@
-import React, {Component, PropTypes} from "react";
+import React, {Component} from "react";
+import {Drawer, AppBar, MenuItem} from "material-ui";
 
 export default class Navbar extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {focused: 0};
+        this.state = {open: false};
     }
 
-    clicked(index) {
-        this.setState({focused: index});
+    handleToggle() {
+        this.setState({open: !this.state.open});
+    }
+
+    handleClose() {
+        this.setState({open: false});
     }
 
     render() {
-        var self = this;
-        var items = [
-            {text: "Home", link: "/"},
-            {text: "Members", link: "#"},
-            {text: "Contact", link: "#"},
-            {text: "Groups", link: "#"},
-            {text: "Photos", link: "#"},
-            {text: "Profile", link: "#"}
-        ];
-
+        var items = ["Home", "News", "Photos", "Friends", "About"];
         return (
-            <nav className="navbar navbar-default">
-                <div className="container">
-                    <div className="navbar-header">
-                        <button type="button" className="navbar-toggle collapsed"
-                                data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-                                aria-controls="navbar">
-                            <span className="sr-only">Toggle navigation</span>
-                            <span className="icon-bar"/>
-                            <span className="icon-bar"/>
-                            <span className="icon-bar"/>
-                        </button>
-                    </div>
-                    <div id="navbar" className="collapse navbar-collapse">
-                        <ul className="nav navbar-nav"> {
-                            items.map(function (item, index) {
-                                var style = '';
-
-                                if (self.state.focused == index) {
-                                    style = 'active';
-                                }
-
-                                return <li className={style} onClick={self.clicked.bind(self, index)}>
-                                    <a href={item.link}>{item.text}</a>
-                                </li>;
-                            })
-                        }
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+            <div>
+                <Drawer docked={false} open={this.state.open} onRequestChange={(open) => this.setState({open})}>
+                    <MenuItem onTouchTap={this.handleClose.bind(this)}>Home</MenuItem>
+                    <MenuItem onTouchTap={this.handleClose.bind(this)}>News</MenuItem>
+                    <MenuItem onTouchTap={this.handleClose.bind(this)}>Photos</MenuItem>
+                    <MenuItem onTouchTap={this.handleClose.bind(this)}>Friends</MenuItem>
+                    <MenuItem onTouchTap={this.handleClose.bind(this)}>About</MenuItem>
+                </Drawer>
+                <AppBar title="App Bar Example" onLeftIconButtonTouchTap={this.handleToggle.bind(this)}/>
+            </div>
         );
     }
 }
