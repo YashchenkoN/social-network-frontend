@@ -1,36 +1,32 @@
 import React, {Component} from "react";
-import {Field, reduxForm} from "redux-form";
-import RaisedButton from 'material-ui/RaisedButton';
-import {TextField} from "redux-form-material-ui";
+import RaisedButton from "material-ui/RaisedButton";
+import TextField from "material-ui/TextField";
+import request from 'superagent';
 
 const style = {
     margin: 12,
 };
 
-class LoginForm extends Component {
+export default class LoginForm extends Component {
+
+    submit(event) {
+        event.preventDefault();
+
+        request
+            .post(window.appHost + '/uaa/oauth/token')
+            .end(function(err, res){
+                console.log('RESPONSE', res);
+                console.log('ERROR', err);
+            });
+    };
 
     render() {
-        const {handleSubmit} = this.props;
         return (
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <Field name="email"
-                           component={TextField}
-                           hintText="Email"
-                           floatingLabelText="Email"/>
-                </div>
-                <div>
-                    <Field name="password"
-                           component={TextField}
-                           hintText="Password"
-                           floatingLabelText="Password"/>
-                </div>
-                <RaisedButton label="Login" primary={true} style={style} />
+            <form onSubmit={this.submit}>
+                <TextField hintText="Email" floatingLabelText="Email"/>
+                <TextField type="password" hintText="Password" floatingLabelText="Password"/>
+                <RaisedButton type="submit" label="Login" primary={true} style={style}/>
             </form>
         )
     }
 }
-
-export default reduxForm({
-    form: 'LoginForm'
-})(LoginForm)
