@@ -10,7 +10,7 @@ import Home from "./pages/Home.jsx";
 
 injectTapEventPlugin();
 
-window.appHost = 'http://localhost:9999';
+window.appHost = 'http://localhost:8765';
 
 render(
     <Provider store={ store }>
