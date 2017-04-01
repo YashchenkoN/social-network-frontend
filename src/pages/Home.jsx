@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import LoginForm from "../components/forms/LoginForm.jsx";
 import {Grid, Row, Col} from "react-flexbox-grid";
+import Profile from "./Profile.jsx"
 
 export default class Home extends Component {
 
@@ -10,6 +11,9 @@ export default class Home extends Component {
                 <Col xs={12}>
                     <Row center="xs">
                         <LoginForm/>
+                    </Row>
+                    <Row>
+                        <Profile/>
                     </Row>
                 </Col>
             </Row>
