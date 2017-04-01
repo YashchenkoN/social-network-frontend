@@ -1,11 +1,18 @@
 import React, {Component} from "react";
-import LoginForm from '../components/forms/LoginForm.jsx'
+import LoginForm from "../components/forms/LoginForm.jsx";
+import {Grid, Row, Col} from "react-flexbox-grid";
 
 export default class Home extends Component {
 
     render() {
         return (
-            <LoginForm/>
+            <Row>
+                <Col xs={12}>
+                    <Row center="xs">
+                        <LoginForm/>
+                    </Row>
+                </Col>
+            </Row>
         )
     }
 }
