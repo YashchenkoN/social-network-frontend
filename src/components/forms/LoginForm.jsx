@@ -22,7 +22,7 @@ export default class LoginForm extends Component {
     submit(event) {
         event.preventDefault();
 
-        console.log(this.state);
+        console.log(this.refs);
 
         request
             .post(window.appHost + '/uaa/oauth/token')
@@ -31,8 +31,8 @@ export default class LoginForm extends Component {
             .set('Origin', window.appHost)
             .send({
                 scope: 'ui',
-                username: this.state.email,
-                password: this.state.password,
+                username: this.refs.email.getValue(),
+                password: this.refs.password.getValue(),
                 grant_type: 'password'
             })
             .end(function (err, res) {
@@ -44,16 +44,17 @@ export default class LoginForm extends Component {
     render() {
         return (
             <Row>
-                <form onSubmit={this.submit.bind(this)}>
+                <form>
                     <Col xs>
-                        <TextField hintText="Email" floatingLabelText="Email" value={this.state.email}/>
+                        <TextField hintText="Email" floatingLabelText="Email" ref="email"/>
                     </Col>
                     <Col xs>
                         <TextField type="password" hintText="Password" floatingLabelText="Password"
-                                   value={this.state.password}/>
+                                   ref="password"/>
                     </Col>
                     <Col xs>
-                        <RaisedButton type="submit" label="Login" primary={true} style={style}/>
+                        <RaisedButton type="submit" onTouchTap={this.submit.bind(this)}
+                                      label="Login" style={style} primary={true} />
                     </Col>
                 </form>
             </Row>
